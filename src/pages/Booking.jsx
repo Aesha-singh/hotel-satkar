@@ -24,7 +24,7 @@ export default function Booking() {
   useEffect(() => {
     const fetchAvailability = async () => {
       try {
-        const response = await fetch('hotel-satkar-production.up.railway.app');
+        const response = await fetch('https://hotel-satkar-production.up.railway.app/api/availability');
         const data = await response.json();
         setAvailability(data);
       } catch (err) {
@@ -87,7 +87,7 @@ export default function Booking() {
     };
 
     try {
-        const response = await fetch('hotel-satkar-production.up.railway.app', {
+        const response = await fetch('https://hotel-satkar-production.up.railway.app/api/bookings', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(finalPayload),
@@ -103,7 +103,7 @@ export default function Booking() {
         }
     } catch (error) {
         console.error("Fetch Error:", error);
-        alert("Ensure your backend terminal shows 'Server is running on port 5001'");
+        alert("Booking failed. Please try again.");
     }
 };
 
