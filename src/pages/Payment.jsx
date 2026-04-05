@@ -50,7 +50,7 @@ export default function Payment() {
     };
 
     try {
-      const response = await fetch('http://localhost:8000/api/bookings', {
+      const response = await fetch('https://hotel-satkar-production.up.railway.app/api/bookings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bookingDetails)
@@ -59,11 +59,11 @@ export default function Payment() {
       if (response.ok) {
         navigate('/success');
       } else {
-        alert("Server error. Ensure backend terminal says 'Pantry Connected'.");
+        alert("Booking Failed.pls try again");
       }
     } catch (error) {
       console.error("Connection Error:", error);
-      alert("Could not reach backend at localhost:8000");
+      alert("Could not reach backend");
     } finally {
       setProcessing(false);
     }

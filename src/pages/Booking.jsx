@@ -24,7 +24,7 @@ export default function Booking() {
   useEffect(() => {
     const fetchAvailability = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/availability');
+        const response = await fetch('hotel-satkar-production.up.railway.app');
         const data = await response.json();
         setAvailability(data);
       } catch (err) {
@@ -87,7 +87,7 @@ export default function Booking() {
     };
 
     try {
-        const response = await fetch('http://localhost:5001/api/bookings', {
+        const response = await fetch('hotel-satkar-production.up.railway.app', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(finalPayload),
