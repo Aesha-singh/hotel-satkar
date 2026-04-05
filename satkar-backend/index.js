@@ -4,7 +4,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+
 
 // 1. Middleware
 app.use(cors());
@@ -98,6 +98,8 @@ app.get('/api/availability', async (req, res) => {
 });
 
 // 8. Start the server
+const PORT = process.env.PORT || 8000;
+
 app.listen(PORT, () => {
-    console.log(`🚀 Hotel Satkar Server is running on port ${PORT}`);
+  console.log("Server running on port " + PORT);
 });
